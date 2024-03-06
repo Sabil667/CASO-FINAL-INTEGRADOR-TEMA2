@@ -1,41 +1,67 @@
-import HABITATS.*;
 import ANIMALES.*;
+
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        // Crear instancias de hábitats
-        HabitatAcuatico habitatAcuatico = new HabitatAcuatico("Acuario", "Zona Este");
-        HabitatTerrestre habitatTerrestre = new HabitatTerrestre("Sabana Africana", "Zona Sur");
-        Aviario aviario = new Aviario("Bosque de Aves", "Zona Oeste", 20, true, true, "Plumaje Brillante", "Exterior");
+        Scanner scanner = new Scanner(System.in);
 
-        // Monitorear condiciones de los hábitats
-        habitatAcuatico.monitorearCondiciones();
-        habitatTerrestre.monitorearCondiciones();
-        aviario.monitorearCondiciones();
+        // Crear instancias de las clases
+        Aviario loro = new Aviario("Loro", 5, 100, 0, "Colorido");
+        Terrestre leon = new Terrestre("León", 8, 100, 0, "Garras");
+        Acuatico pezDorado = new Acuatico("Pez Dorado", 2, 100, 0, "Aletas largas");
 
+        // Crear animales adicionales
+        Aviario aguila = new Aviario("Águila", 7, 95, 10, "Marrón");
+        Terrestre tigre = new Terrestre("Tigre", 6, 90, 15, "Garras afiladas");
+        Acuatico delfin = new Acuatico("Delfín", 4, 98, 5, "Aletas cortas");
 
-            // Crear instancias de animales
-            Mamifero leon = new Mamifero("León", "Panthera leo", 5, "Carne", true);
-            Ave aguila = new Ave("Águila", "Aquila chrysaetos", 10, "Carne y pescado", true);
-            Reptil cocodrilo = new Reptil("Cocodrilo", "Crocodylus niloticus", 15, "Carne");
-            Pez pezGlobo = new Pez("Pez Globo", "Tetraodontidae", 3, "Crustáceos y moluscos");
+        int opcion;
+        do {
+            System.out.println("\n--- Menú de Opciones ---");
+            System.out.println("1. Mostrar información de los animales");
+            System.out.println("2. Alimentar a los animales");
+            System.out.println("3. Salir");
+            System.out.print("Ingrese la opción deseada: ");
 
-            // Alimentar a los animales
-            leon.alimentar("carne");
-            aguila.alimentar("pescado");
-            cocodrilo.alimentar("pescado");
-            pezGlobo.alimentar("crustáceos");
+            opcion = scanner.nextInt();
 
-            // Registrar salud y comportamiento de los animales
-            leon.registrarSalud();
-            leon.registrarComportamiento("El león está descansando bajo la sombra de un árbol.");
-            aguila.registrarSalud();
-            aguila.registrarComportamiento("El águila está volando sobre su territorio.");
-            cocodrilo.registrarSalud();
-            cocodrilo.registrarComportamiento("El cocodrilo está tomando el sol cerca del agua.");
-            pezGlobo.registrarSalud();
-            pezGlobo.registrarComportamiento("El pez globo está nadando en el acuario.");
+            switch (opcion) {
+                case 1:
+                    mostrarInformacionAnimales(loro, leon, pezDorado, aguila, tigre, delfin);
+                    break;
+                case 2:
+                    alimentarAnimales(loro, leon, pezDorado, aguila, tigre, delfin);
+                    break;
+                case 3:
+                    System.out.println("Saliendo del programa. ¡Hasta luego!");
+                    break;
+                default:
+                    System.out.println("Opción no válida. Inténtelo de nuevo.");
+            }
+        } while (opcion != 3);
+    }
+
+    private static void mostrarInformacionAnimales(Animal... animales) {
+        for (Animal animal : animales) {
+            System.out.println("\n--- Información de " + animal.nombre + " ---");
+            System.out.println("Edad: " + animal.edad);
+            System.out.println("Salud: " + animal.salud);
+            System.out.println("Hambre: " + animal.hambre);
+            System.out.println("Dieta: " + animal.dieta);
         }
     }
 
+    private static void alimentarAnimales(Animal... animales) {
+        Scanner scanner = new Scanner(System.in);
 
+        System.out.println("\n--- Alimentar a los Animales ---");
+        System.out.print("Ingrese la cantidad de comida a dar: ");
+        int cantidadComida = scanner.nextInt();
+
+        for (Animal animal : animales) {
+            animal.alimentar(cantidadComida);
+            System.out.println(animal.nombre + " ha sido alimentado. Nueva hambre: " + animal.hambre);
+        }
+    }
+}
