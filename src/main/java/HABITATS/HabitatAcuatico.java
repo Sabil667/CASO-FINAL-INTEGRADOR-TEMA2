@@ -1,4 +1,4 @@
-package ANIMALES;
+package HABITATS;
 
 // Subclase Acuático
 public class HabitatAcuatico extends Habitat {

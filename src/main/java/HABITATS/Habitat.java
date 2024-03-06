@@ -1,4 +1,4 @@
-package ANIMALES;
+package HABITATS;
 
 // Clase abstracta Habitat
 public abstract class Habitat {

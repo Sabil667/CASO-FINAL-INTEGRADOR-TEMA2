@@ -1,4 +1,4 @@
-package ANIMALES;
+package HABITATS;
 
 // Subclase Terrestre
 public class HabitatTerrestre extends Habitat {
