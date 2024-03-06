@@ -1,2 +1,4 @@
-package ANIMALES;public class HabitatAcuatico {
+package ANIMALES;
+
+public class HabitatAcuatico {
 }
