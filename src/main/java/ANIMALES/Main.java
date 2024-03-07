@@ -1,3 +1,5 @@
+package ANIMALES;
+
 import ANIMALES.*;
 
 import java.util.Scanner;

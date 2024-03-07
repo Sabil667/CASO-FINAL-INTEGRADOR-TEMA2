@@ -1,16 +1,30 @@
 package RECURSOS;
-
 public class Recurso {
-    private String nombre;
-    private int cantidad;
+    String nombre;
+    String tipo;
+    int cantidad;
 
-    public Recurso(String nombre, int cantidad) {
+    public Recurso(String nombre, String tipo, int cantidad) {
         this.nombre = nombre;
+        this.tipo = tipo;
         this.cantidad = cantidad;
     }
 
+    // Agrega getters y setters según sea necesario
     public String getNombre() {
         return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
     }
 
     public int getCantidad() {
