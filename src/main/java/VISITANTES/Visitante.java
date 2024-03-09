@@ -1,4 +1,5 @@
 package VISITANTES;
 
-public class Visitante {
+public abstract class Visitante {
+    abstract void realizarTour();
 }
