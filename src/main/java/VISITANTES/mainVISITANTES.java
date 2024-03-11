@@ -8,6 +8,78 @@ public class mainVISITANTES {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
+        //Creame un menu en el que salga la opcion de si es un empleado o un visitante, si es un empleado que le salga el menu de mantenimiento y seguridad, si es un visitante que le salga el menu de tours y guias de animales
+        System.out.println("Bienvenido al Sistema de Tours Especializados:");
+        System.out.println("¿Eres un empleado o un visitante?");
+        System.out.println("1. Empleado");
+        System.out.println("2. Visitante");
+        System.out.print("Seleccione una opción: ");
+        int opcionUsuario = scanner.nextInt();
+
+        if (opcionUsuario == 1) {
+            // Menu de empleado
+            System.out.println("¿Eres de mantenimiento o seguridad?");
+            System.out.println("1. Mantenimiento");
+            System.out.println("2. Seguridad");
+            System.out.print("Seleccione una opción: ");
+            int opcionEmpleado = scanner.nextInt();
+
+            if (opcionEmpleado == 1) {
+                // Crear instancias de las clases
+                MANTENIMIENTOSEGURIDAD.ProgramaMantenimiento programaMantenimiento = new MANTENIMIENTOSEGURIDAD.ProgramaMantenimiento();
+                MANTENIMIENTOSEGURIDAD.SistemaSeguridad sistemaSeguridad = new MANTENIMIENTOSEGURIDAD.SistemaSeguridad();
+                MANTENIMIENTOSEGURIDAD.Camara camara = new MANTENIMIENTOSEGURIDAD.Camara("Entrada Principal");
+                MANTENIMIENTOSEGURIDAD.Sensor sensor = new MANTENIMIENTOSEGURIDAD.Sensor("Entrada Principal");
+
+                // Agregar la cámara y el sensor al sistema de seguridad
+                sistemaSeguridad.getCamaras().add(camara);
+                sistemaSeguridad.getSensores().add(sensor);
+
+                // Programar un mantenimiento
+                MANTENIMIENTOSEGURIDAD.Mantenimiento mantenimiento = new MANTENIMIENTOSEGURIDAD.Mantenimiento(new java.util.Date(), "Mantenimiento de rutina", false);
+                programaMantenimiento.programarMantenimiento(mantenimiento);
+
+                // Crear un objeto Scanner para leer la entrada del usuario
+                Scanner scannerEmpleado = new Scanner(System.in);
+
+                // Menú
+                while (true) {
+                    System.out.println("Seleccione una opción:");
+                    System.out.println("1. Ver la cámara");
+                    System.out.println("2. Ver el sensor");
+                    System.out.println("3. Ver la fecha y descripción del mantenimiento");
+                    System.out.println("4. Salir");
+
+                    int opcion = scannerEmpleado.nextInt();
+
+                    switch (opcion) {
+                        case 1:
+                            // Ver la cámara
+                            System.out.println("Ubicación de la cámara: " + camara.getUbicacion());
+                            break;
+                        case 2:
+                            // Ver el sensor
+                            System.out.println("Ubicación del sensor: " + sensor.get
+                            break;
+                        case 3:
+                            // Ver la fecha y descripción del mantenimiento
+                            System.out.println("Fecha: " + mantenimiento.getFecha());
+                            System.out.println("Descripción: " + mantenimiento.getDescripcion());
+                            break;
+
+                        case 4:
+                            // Salir
+                            System.out.println("Saliendo del programa...");
+                            System.exit(0);
+                        default:
+                            System.out.println("Opción no válida. Por favor, intente de nuevo.");
+                    }
+                }
+            } else if (opcionEmpleado == 2) {
+
+
+
+
         // Menú principal
         System.out.println("\n========================================");
         System.out.println("Bienvenido al Sistema de Tours Especializados:");
@@ -120,5 +192,7 @@ public class mainVISITANTES {
     private static void monitorearCondicionesHabitat(HABITATS.Aviario habitat) {
         System.out.println("\n--- Monitoreando condiciones del hábitat aviario ---");
         habitat.monitorearCondiciones();
+    }
+        }
     }
 }
