@@ -5,34 +5,30 @@ import java.util.Date;
 import java.util.List;
 
 public class ProgramaMantenimiento {
-    private List<Mantenimiento> mantenimientos;
-
-    public ProgramaMantenimiento() {
-        this.mantenimientos = new ArrayList<>();
-    }
-
-    public void programarMantenimiento(Mantenimiento mantenimiento) {
-        this.mantenimientos.add(mantenimiento);
-    }
-
-    public void rastrearMantenimientos() {
-        for (Mantenimiento mantenimiento : mantenimientos) {
-            System.out.println("Fecha: " + mantenimiento.getFecha() +
-                    ", Descripción: " + mantenimiento.getDescripcion() +
-                    ", Es urgente: " + (mantenimiento.isEsUrgente() ? "Sí" : "No"));
-        }
-    }
-}
-
-public class Mantenimiento {
+    private List<Camara> camaras;
+    private List<Sensor> sensores;
     private Date fecha;
     private String descripcion;
-    private boolean esUrgente;
+    private boolean completado;
 
-    public Mantenimiento(Date fecha, String descripcion, boolean esUrgente) {
+    public ProgramaMantenimiento() {
+        this.camaras = new ArrayList<>();
+        this.sensores = new ArrayList<>();
+    }
+
+    public ProgramaMantenimiento(Date fecha, String descripcion, boolean completado) {
+        this();
         this.fecha = fecha;
         this.descripcion = descripcion;
-        this.esUrgente = esUrgente;
+        this.completado = completado;
+    }
+
+    public List<Camara> getCamaras() {
+        return camaras;
+    }
+
+    public List<Sensor> getSensores() {
+        return sensores;
     }
 
     public Date getFecha() {
@@ -43,7 +39,22 @@ public class Mantenimiento {
         return descripcion;
     }
 
-    public boolean isEsUrgente() {
-        return esUrgente;
+    public boolean isCompletado() {
+        return completado;
+    }
+
+    public void monitorearAccesos() {
+        for (Camara camara : camaras) {
+            camara.grabar();
+        }
+    }
+
+    public void monitorearMovimientos() {
+        for (Sensor sensor : sensores) {
+            sensor.detectarMovimiento();
+        }
+    }
+
+    public void programaMantenimiento(ProgramaMantenimiento mantenimiento) {
     }
 }

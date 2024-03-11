@@ -33,34 +33,3 @@ public class SistemaSeguridad {
     }
 }
 
-public class Camara {
-    private String ubicacion;
-
-    public Camara(String ubicacion) {
-        this.ubicacion = ubicacion;
-    }
-
-    public void grabar() {
-        System.out.println("La cámara en " + ubicacion + " está grabando.");
-    }
-
-    public String getUbicacion() {
-        return ubicacion;
-    }
-}
-
-public class Sensor {
-    private String ubicacion;
-
-    public Sensor(String ubicacion) {
-        this.ubicacion = ubicacion;
-    }
-
-    public void detectarMovimiento() {
-        System.out.println("El sensor en " + ubicacion + " ha detectado movimiento.");
-    }
-
-    public String getUbicacion() {
-        return ubicacion;
-    }
-}

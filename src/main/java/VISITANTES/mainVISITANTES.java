@@ -9,7 +9,7 @@ import RECURSOS.Recurso;
 public class mainVISITANTES {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        Recurso recurso = new Recurso();
+        Recurso recurso = new Recurso("param1","param2", 123);
 
         System.out.println("Bienvenido al Sistema de Tours Especializados:");
         System.out.println("¿Eres un empleado o un visitante?");
@@ -34,8 +34,8 @@ public class mainVISITANTES {
                 sistemaSeguridad.getCamaras().add(camara);
                 sistemaSeguridad.getSensores().add(sensor);
 
-                Mantenimiento mantenimiento = new Mantenimiento(new java.util.Date(), "Mantenimiento de rutina", false);
-                programaMantenimiento.programarMantenimiento(mantenimiento);
+                ProgramaMantenimiento mantenimiento = new ProgramaMantenimiento(new java.util.Date(), "Mantenimiento de rutina", false);
+                programaMantenimiento.programaMantenimiento(mantenimiento);
 
                 Scanner scannerEmpleado = new Scanner(System.in);
 

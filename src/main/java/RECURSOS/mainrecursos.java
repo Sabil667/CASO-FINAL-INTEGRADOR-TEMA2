@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 public class mainrecursos {
     public static void main(String[] args) {
+
         // Crear instancias de las clases
         Inventario inventario = new Inventario();
         Recurso carne = new Recurso("Carne", "Alimento", 100);

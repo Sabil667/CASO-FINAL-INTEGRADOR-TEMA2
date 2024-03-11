@@ -1,5 +1,10 @@
 package RECURSOS;
 public class Recurso {
+
+    public void mostrarRecursos() {
+        // Lógica para mostrar los recursos disponibles
+        System.out.println("Recursos disponibles: ...");
+    }
     String nombre;
     String tipo;
     int cantidad;
