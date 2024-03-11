@@ -33,7 +33,7 @@ public class SistemaSeguridad {
     }
 }
 
-class Camara {
+public class Camara {
     private String ubicacion;
 
     public Camara(String ubicacion) {
@@ -49,7 +49,7 @@ class Camara {
     }
 }
 
-class Sensor {
+public class Sensor {
     private String ubicacion;
 
     public Sensor(String ubicacion) {

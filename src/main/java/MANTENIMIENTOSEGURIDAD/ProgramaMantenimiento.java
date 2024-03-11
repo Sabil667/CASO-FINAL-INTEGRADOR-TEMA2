@@ -24,7 +24,7 @@ public class ProgramaMantenimiento {
     }
 }
 
-class Mantenimiento {
+public class Mantenimiento {
     private Date fecha;
     private String descripcion;
     private boolean esUrgente;
