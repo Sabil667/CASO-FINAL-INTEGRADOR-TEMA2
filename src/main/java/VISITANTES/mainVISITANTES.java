@@ -18,8 +18,7 @@ public class mainVISITANTES {
         System.out.print("Seleccione una opción: ");
         int opcionUsuario = scanner.nextInt();
 
-        if (opcionUsuario == 1) {
-            System.out.println("¿Eres de mantenimiento o seguridad?");
+        if (opcionUsuario == 1) { System.out.println("¿Eres de mantenimiento o seguridad?");
             System.out.println("1. Mantenimiento");
             System.out.println("2. Seguridad");
             System.out.print("Seleccione una opción: ");
@@ -72,35 +71,34 @@ public class mainVISITANTES {
                 }
             }
         } else if (opcionUsuario == 2) {
-            HABITATS.Acuatico habitatAcuatico = new HABITATS.Acuatico("Acuario", 25.0f, 80.0f, true, 7.5f);
-            HABITATS.Terrestre habitatTerrestre = new HABITATS.Terrestre("Bosque", 28.0f, 60.0f, true, "Arcilloso");
-            HABITATS.Aviario habitatAviario = new HABITATS.Aviario("Aviario", 22.0f, 75.0f, true, 15);
+            System.out.println("¿Cuál es tu preferencia animal?");
+            System.out.println("1. Animales terrestres");
+            System.out.println("2. Animales acuáticos");
+            System.out.println("3. Animales aviarios");
+            System.out.print("Seleccione una opción: ");
+            int opcionAnimal = scanner.nextInt();
 
-            System.out.println("\n--- Menú de Opciones ---");
-            System.out.println("1. Monitorear condiciones de todos los hábitats");
-            System.out.println("2. Ver detalles del hábitat acuático");
-            System.out.println("3. Ver detalles del hábitat terrestre");
-            System.out.println("4. Ver detalles del hábitat de aviario");
-            System.out.println("5. Salir");
-            System.out.print("Ingrese la opción deseada: ");
-
-            int opcionHabitat = scanner.nextInt();
-
-            switch (opcionHabitat) {
+            switch (opcionAnimal) {
                 case 1:
-                    monitorearCondicionesTodos(habitatAcuatico, habitatTerrestre, habitatAviario);
+                    System.out.println("¡Bienvenido al tour especializado en animales terrestres!");
+                    HABITATS.Terrestre habitatTerrestre = new HABITATS.Terrestre("Bosque", 28.0f, 60.0f, true, "Arcilloso");
+                    monitorearCondicionesHabitat(habitatTerrestre);
+                    ANIMALES.Terrestre animalTerrestre = new ANIMALES.Terrestre("Nombre del animal", "Descripción del animal");
+                    System.out.println("Información del animal: " + animalTerrestre.getNombre() + ", " + animalTerrestre.getDescripcion());
                     break;
                 case 2:
+                    System.out.println("¡Bienvenido al tour especializado en animales acuáticos!");
+                    HABITATS.Acuatico habitatAcuatico = new HABITATS.Acuatico("Acuario", 25.0f, 80.0f, true, 7.5f);
                     monitorearCondicionesHabitat(habitatAcuatico);
+                    ANIMALES.Acuatico animalAcuatico = new ANIMALES.Acuatico("Nombre del animal", "Descripción del animal");
+                    System.out.println("Información del animal: " + animalAcuatico.getNombre() + ", " + animalAcuatico.getDescripcion());
                     break;
                 case 3:
-                    monitorearCondicionesHabitat(habitatTerrestre);
-                    break;
-                case 4:
+                    System.out.println("¡Bienvenido al tour especializado en animales aviarios!");
+                    HABITATS.Aviario habitatAviario = new HABITATS.Aviario("Aviario", 22.0f, 75.0f, true, 15);
                     monitorearCondicionesHabitat(habitatAviario);
-                    break;
-                case 5:
-                    System.out.println("Saliendo del programa. ¡Hasta luego!");
+                    ANIMALES.Aviario animalAviario = new ANIMALES.Aviario("Nombre del animal", "Descripción del animal");
+                    System.out.println("Información del animal: " + animalAviario.getNombre() + ", " + animalAviario.getDescripcion());
                     break;
                 default:
                     System.out.println("Opción no válida. Inténtelo de nuevo.");
