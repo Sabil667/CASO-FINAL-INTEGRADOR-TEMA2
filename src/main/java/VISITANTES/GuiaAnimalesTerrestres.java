@@ -1,9 +1,19 @@
 package VISITANTES;
 
+import ANIMALES.*;
+
 public class GuiaAnimalesTerrestres extends GuiaAnimales {
+    public GuiaAnimalesTerrestres() {
+        super();
+        this.animales.add(new Terrestre.Elefante());
+        this.animales.add(new Terrestre.Tigre());
+    }
+
     @Override
-    void mostrarAnimales() {
+    public void mostrarAnimales() {
         System.out.println("Animales Terrestres:");
-        // Aquí mostraría la lista de animales terrestres disponibles
+        for (Animal animal : this.animales) {
+            System.out.println(animal);
+        }
     }
 }

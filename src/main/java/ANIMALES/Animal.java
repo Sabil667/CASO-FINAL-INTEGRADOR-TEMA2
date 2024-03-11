@@ -34,4 +34,29 @@ public class Animal {
         this.dieta = nuevaDieta;
         System.out.println(this.nombre + " tiene una nueva dieta: " + nuevaDieta);
     }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public int getEdad() {
+        return edad;
+    }
+
+    public int getSalud() {
+        return salud;
+    }
+
+    public int getHambre() {
+        return hambre;
+    }
+
+    public String getDieta() {
+        return dieta;
+    }
+
+    @Override
+    public String toString() {
+        return "Nombre: " + this.nombre + ", Edad: " + this.edad + ", Salud: " + this.salud + ", Hambre: " + this.hambre + ", Dieta: " + this.dieta;
+    }
 }

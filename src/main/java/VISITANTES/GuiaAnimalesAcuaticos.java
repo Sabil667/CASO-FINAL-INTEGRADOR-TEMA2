@@ -1,9 +1,19 @@
 package VISITANTES;
 
+import ANIMALES.*;
+
 public class GuiaAnimalesAcuaticos extends GuiaAnimales {
+    public GuiaAnimalesAcuaticos() {
+        super();
+        this.animales.add(new Acuatico.Tiburon());
+        this.animales.add(new Acuatico.Delfin());
+    }
+
     @Override
-    void mostrarAnimales() {
+    public void mostrarAnimales() {
         System.out.println("Animales Acuáticos:");
-        // Aquí mostraría la lista de animales acuáticos disponibles
+        for (Animal animal : this.animales) {
+            System.out.println(animal);
+        }
     }
 }

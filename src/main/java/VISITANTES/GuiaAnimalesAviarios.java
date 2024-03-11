@@ -1,9 +1,19 @@
 package VISITANTES;
 
+import ANIMALES.*;
+
 public class GuiaAnimalesAviarios extends GuiaAnimales {
+    public GuiaAnimalesAviarios() {
+        super();
+        this.animales.add(new Aviario.Aguila());
+        this.animales.add(new Aviario.Colibri());
+    }
+
     @Override
-    void mostrarAnimales() {
+    public void mostrarAnimales() {
         System.out.println("Animales Aviarios:");
-        // Aquí mostraría la lista de animales aviarios disponibles
+        for (Animal animal : this.animales) {
+            System.out.println(animal);
+        }
     }
 }

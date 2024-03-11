@@ -29,4 +29,20 @@ public abstract class Habitat {
         this.limpieza = true;
         System.out.println("El hábitat " + nombre + " ha sido limpiado.");
     }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public float getTemperatura() {
+        return temperatura;
+    }
+
+    public float getHumedad() {
+        return humedad;
+    }
+
+    public boolean isLimpieza() {
+        return limpieza;
+    }
 }
