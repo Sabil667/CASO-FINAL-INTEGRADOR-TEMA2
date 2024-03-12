@@ -9,12 +9,12 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
 
         // Crear instancias de las clases
-        Aviario loro = new Aviario("Loro", 5, 100, 0, "Colorido");
+        Aviario loro = new Aviario("Loro", 5, 100, 0, "Colorido", "Descripción del loro");
         Terrestre leon = new Terrestre("León", 8, 100, 0, "Garras");
         Acuatico pezDorado = new Acuatico("Pez Dorado", 2, 100, 0, "Aletas largas");
 
         // Crear animales adicionales
-        Aviario aguila = new Aviario("Águila", 7, 95, 10, "Marrón");
+        Aviario aguila = new Aviario("Águila", 7, 95, 10, "Marrón","Descripcion del aguila");
         Terrestre tigre = new Terrestre("Tigre", 6, 90, 15, "Garras afiladas");
         Acuatico delfin = new Acuatico("Delfín", 4, 98, 5, "Aletas cortas");
 
@@ -44,7 +44,7 @@ public class Main {
         } while (opcion != 3);
     }
 
-    private static void mostrarInformacionAnimales(Animal... animales) {
+    public static void mostrarInformacionAnimales(Animal... animales) {
         for (Animal animal : animales) {
             System.out.println("\n--- Información de " + animal.nombre + " ---");
             System.out.println("Edad: " + animal.edad);

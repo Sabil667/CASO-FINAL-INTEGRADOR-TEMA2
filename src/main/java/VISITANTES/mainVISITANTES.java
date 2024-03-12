@@ -1,15 +1,24 @@
 package VISITANTES;
 
 import ANIMALES.*;
-import HABITATS.*;
 import java.util.Scanner;
 import MANTENIMIENTOSEGURIDAD.*;
-import RECURSOS.Recurso;
+import RECURSOS.*;
 
 public class mainVISITANTES {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        Recurso recurso = new Recurso("param1","param2", 123);
+
+
+
+        Inventario inventario = new Inventario();
+        Recurso carne = new Recurso("Carne", "Alimento", 100);
+        Recurso antibiotico = new Recurso("Antibiótico", "Medicina", 50);
+        Recurso jaula = new Recurso("Jaula", "Equipamiento", 5);
+        inventario.agregarRecurso(carne);
+        inventario.agregarRecurso(antibiotico);
+        inventario.agregarRecurso(jaula);
+
 
         System.out.println("Bienvenido al Sistema de Tours Especializados:");
         System.out.println("¿Eres un empleado o un visitante?");
@@ -18,58 +27,83 @@ public class mainVISITANTES {
         System.out.print("Seleccione una opción: ");
         int opcionUsuario = scanner.nextInt();
 
-        if (opcionUsuario == 1) { System.out.println("¿Eres de mantenimiento o seguridad?");
+        if (opcionUsuario == 1) {
+            System.out.println("¿Eres de mantenimiento o seguridad?");
             System.out.println("1. Mantenimiento");
             System.out.println("2. Seguridad");
             System.out.print("Seleccione una opción: ");
             int opcionEmpleado = scanner.nextInt();
 
-            if (opcionEmpleado == 1) {
-                ProgramaMantenimiento programaMantenimiento = new ProgramaMantenimiento();
-                SistemaSeguridad sistemaSeguridad = new SistemaSeguridad();
-                Camara camara = new Camara("Entrada Principal");
-                Sensor sensor = new Sensor("Entrada Principal");
+            switch (opcionEmpleado) {
+                case 1:
+                    ProgramaMantenimiento programaMantenimiento = new ProgramaMantenimiento();
+                    ProgramaMantenimiento mantenimiento = new ProgramaMantenimiento(new java.util.Date(), "Mantenimiento de rutina", false);
+                    programaMantenimiento.programaMantenimiento(mantenimiento);
 
-                sistemaSeguridad.getCamaras().add(camara);
-                sistemaSeguridad.getSensores().add(sensor);
+                    Scanner scannerEmpleado = new Scanner(System.in);
 
-                ProgramaMantenimiento mantenimiento = new ProgramaMantenimiento(new java.util.Date(), "Mantenimiento de rutina", false);
-                programaMantenimiento.programaMantenimiento(mantenimiento);
+                    while (true) {
+                        System.out.println("Seleccione una opción:");
+                        System.out.println("1. Ver la fecha y descripción del mantenimiento");
+                        System.out.println("2. Ver recursos");
+                        System.out.println("3. Salir");
 
-                Scanner scannerEmpleado = new Scanner(System.in);
+                        int opcion = scannerEmpleado.nextInt();
 
-                while (true) {
-                    System.out.println("Seleccione una opción:");
-                    System.out.println("1. Ver la cámara");
-                    System.out.println("2. Ver el sensor");
-                    System.out.println("3. Ver la fecha y descripción del mantenimiento");
-                    System.out.println("4. Ver recursos");
-                    System.out.println("5. Salir");
-
-                    int opcion = scannerEmpleado.nextInt();
-
-                    switch (opcion) {
-                        case 1:
-                            System.out.println("Ubicación de la cámara: " + camara.getUbicacion());
-                            break;
-                        case 2:
-                            System.out.println("Ubicación del sensor: " + sensor.getUbicacion());
-                            break;
-                        case 3:
-                            System.out.println("Fecha: " + mantenimiento.getFecha());
-                            System.out.println("Descripción: " + mantenimiento.getDescripcion());
-                            break;
-                        case 4:
-                            recurso.mostrarRecursos();
-                            break;
-                        case 5:
-                            System.out.println("Saliendo del programa...");
-                            System.exit(0);
-                        default:
-                            System.out.println("Opción no válida. Por favor, intente de nuevo.");
+                        switch (opcion) {
+                            case 1:
+                                System.out.println("Fecha: " + mantenimiento.getFecha());
+                                System.out.println("Descripción: " + mantenimiento.getDescripcion());
+                                break;
+                            case 2:
+                                inventario.mostrarInventario();
+                                break;
+                            case 3:
+                                System.out.println("Saliendo del programa...");
+                                System.exit(0);
+                            default:
+                                System.out.println("Opción no válida. Por favor, intente de nuevo.");
+                        }
                     }
-                }
+
+                case 2:
+                    SistemaSeguridad sistemaSeguridad = new SistemaSeguridad();
+                    Camara camara = new Camara("Entrada Principal");
+                    Sensor sensor = new Sensor("Entrada Principal");
+
+                    sistemaSeguridad.getCamaras().add(camara);
+                    sistemaSeguridad.getSensores().add(sensor);
+
+                    Scanner scannerSeguridad = new Scanner(System.in);
+
+                    while (true) {
+                        System.out.println("Seleccione una opción:");
+                        System.out.println("1. Ver la cámara");
+                        System.out.println("2. Ver el sensor");
+                        System.out.println("3. Salir");
+
+                        int opcion = scannerSeguridad.nextInt();
+
+                        switch (opcion) {
+                            case 1:
+                                System.out.println("Ubicación de la cámara: " + camara.getUbicacion());
+                                break;
+                            case 2:
+                                System.out.println("Ubicación del sensor: " + sensor.getUbicacion());
+                                break;
+                            case 3:
+                                System.out.println("Saliendo del programa...");
+                                System.exit(0);
+                            default:
+                                System.out.println("Opción no válida. Por favor, intente de nuevo.");
+                        }
+                    }
+
+                default:
+                    System.out.println("Opción no válida. Inténtelo de nuevo.");
             }
+
+// Resto del código...
         } else if (opcionUsuario == 2) {
             System.out.println("¿Cuál es tu preferencia animal?");
             System.out.println("1. Animales terrestres");
@@ -81,24 +115,31 @@ public class mainVISITANTES {
             switch (opcionAnimal) {
                 case 1:
                     System.out.println("¡Bienvenido al tour especializado en animales terrestres!");
-                    HABITATS.Terrestre habitatTerrestre = new HABITATS.Terrestre("Bosque", 28.0f, 60.0f, true, "Arcilloso");
-                    monitorearCondicionesHabitat(habitatTerrestre);
-                    ANIMALES.Terrestre animalTerrestre = new ANIMALES.Terrestre("Nombre del animal", 1,2,3,"Descripción del animal");
-                    System.out.println("Información del animal: " + animalTerrestre.getNombre() + ", " + animalTerrestre.getDescripcion());
+
+
+                    // Crear instancias de los animales terrestres
+                    ANIMALES.Terrestre leon = new ANIMALES.Terrestre("León", 8, 100, 0, "Garras");
+                    ANIMALES.Terrestre tigre = new ANIMALES.Terrestre("Tigre", 6, 90, 15, "Garras afiladas");
+
+                    // Mostrar la información de los animales terrestres
+                    ANIMALES.Main.mostrarInformacionAnimales(leon, tigre);
                     break;
+
+
                 case 2:
                     System.out.println("¡Bienvenido al tour especializado en animales acuáticos!");
-                    HABITATS.Acuatico habitatAcuatico = new HABITATS.Acuatico("Acuario", 25.0f, 80.0f, true, 7.5f);
-                    monitorearCondicionesHabitat(habitatAcuatico);
-                    ANIMALES.Acuatico animalAcuatico = new ANIMALES.Acuatico("Nombre del animal", 1,2,3,"Descripción del animal");
-                    System.out.println("Información del animal: " + animalAcuatico.getNombre() + ", " + animalAcuatico.getDescripcion());
+                    ANIMALES.Acuatico tiburon = new ANIMALES.Acuatico("Tiburon", 20, 100, 0, "Aletas largas");
+                    ANIMALES.Acuatico delfin = new ANIMALES.Acuatico("Delfín", 4, 98, 5, "Aletas cortas");
+
+                    ANIMALES.Main.mostrarInformacionAnimales(tiburon, delfin);
                     break;
                 case 3:
                     System.out.println("¡Bienvenido al tour especializado en animales aviarios!");
-                    HABITATS.Aviario habitatAviario = new HABITATS.Aviario("Aviario", 22.0f, 75.0f, true, 15);
-                    monitorearCondicionesHabitat(habitatAviario);
-                    ANIMALES.Aviario animalAviario = new ANIMALES.Aviario("Nombre del animal", 1,2,3,"Descripción del animal","Otra descripción");
-                    System.out.println("Información del animal: " + animalAviario.getNombre() + ", " + animalAviario.getDescripcion());
+                       ANIMALES.Aviario Colibri = new ANIMALES.Aviario("Colibri", 5, 100, 0, "Colorido", "Descripción del loro");
+                       ANIMALES.Aviario Aguila = new ANIMALES.Aviario("Águila", 7, 95, 10, "Marrón","Descripcion del aguila");
+
+                    ANIMALES.Main.mostrarInformacionAnimales(Colibri, Aguila);
+
                     break;
                 default:
                     System.out.println("Opción no válida. Inténtelo de nuevo.");
@@ -124,7 +165,6 @@ public class mainVISITANTES {
         System.out.println("\n--- Monitoreando condiciones del hábitat terrestre ---");
         habitat.monitorearCondiciones();
     }
-
     private static void monitorearCondicionesHabitat(HABITATS.Aviario habitat) {
         System.out.println("\n--- Monitoreando condiciones del hábitat aviario ---");
         habitat.monitorearCondiciones();
