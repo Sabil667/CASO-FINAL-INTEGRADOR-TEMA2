@@ -18,13 +18,13 @@ public class Acuatico extends Habitat {
     }
     @Override
     public String toString() {
-        return "Acuatico{" +
-                "nombre='" + getNombre() + '\'' +
-                ", temperatura=" + getTemperatura() +
-                ", humedad=" + getHumedad() +
-                ", limpieza=" + isLimpieza() +
-                ", nivelPH=" + nivelPH +
-                '}';
+        return "Habitat Acuatico: \n" +
+                "Nombre: " + getNombre() + '\n' +
+                "Temperatura: " + getTemperatura() +"°C\n" +
+                "Humedad: " + getHumedad() + "%\n" +
+                "Limpieza: " + (isLimpieza() ? "Sí" : "No") + '\n' +
+                "Nivel de pH: " + nivelPH;
+
     }
 
 

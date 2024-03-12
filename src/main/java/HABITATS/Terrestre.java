@@ -18,12 +18,12 @@ public class Terrestre extends Habitat {
     }
     @Override
     public String toString() {
-        return "Terrestre{" +
-                "nombre='" + getNombre() + '\'' +
-                ", temperatura=" + getTemperatura() +
-                ", humedad=" + getHumedad() +
-                ", limpieza=" + isLimpieza() +
-                ", tipoSuelo='" + tipoSuelo + '\'' +
+        return "Habitat Terrestre: \n" +
+                "Nombre: " + getNombre() + '\n' +
+                "Temperatura: " + getTemperatura() +"°C\n" +
+                "Humedad: " + getHumedad() + "%\n" +
+                "Limpieza: " + (isLimpieza() ? "Sí" : "No") + '\n' +
+                "Tipo de Suelo='" + tipoSuelo + '\'' +
                 '}';
     }
 

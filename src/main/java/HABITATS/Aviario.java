@@ -19,12 +19,11 @@ public class Aviario extends Habitat {
 
     @Override
     public String toString() {
-        return "Aviario{" +
-                "nombre='" + getNombre() + '\'' +
-                ", temperatura=" + getTemperatura() +
-                ", humedad=" + getHumedad() +
-                ", limpieza=" + isLimpieza() +
-                ", cantidadPajaros=" + cantidadPajaros +
-                '}';
-    }
+            return "Hábitat Aviario:\n" +
+                    "Nombre: " + getNombre() + "\n" +
+                    "Temperatura: " + getTemperatura() + "°C\n" +
+                    "Humedad: " + getHumedad() + "%\n" +
+                    "¿Hábitat limpio? " + (isLimpieza() ? "Sí" : "No") + "\n" +
+                    "Cantidad de Pájaros: " + cantidadPajaros;
+        }
 }
