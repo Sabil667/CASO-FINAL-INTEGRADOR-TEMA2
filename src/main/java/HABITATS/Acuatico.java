@@ -16,4 +16,16 @@ public class Acuatico extends Habitat {
         System.out.println("Nivel de pH: " + nivelPH);
         System.out.println("¿Hábitat limpio? " + (limpieza ? "Sí" : "No"));
     }
+    @Override
+    public String toString() {
+        return "Acuatico{" +
+                "nombre='" + getNombre() + '\'' +
+                ", temperatura=" + getTemperatura() +
+                ", humedad=" + getHumedad() +
+                ", limpieza=" + isLimpieza() +
+                ", nivelPH=" + nivelPH +
+                '}';
+    }
+
+
 }
