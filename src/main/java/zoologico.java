@@ -3,6 +3,9 @@ import ANIMALES.*;
 import java.util.Scanner;
 import MANTENIMIENTOSEGURIDAD.*;
 import RECURSOS.*;
+import HABITATS.*;
+import QUIOSCO.*;
+
 
 import java.util.ArrayList;
 import java.util.List;
