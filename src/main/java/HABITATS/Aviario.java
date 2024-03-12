@@ -16,4 +16,15 @@ public class Aviario extends Habitat {
         System.out.println("Cantidad de pájaros: " + cantidadPajaros);
         System.out.println("¿Hábitat limpio? " + (limpieza ? "Sí" : "No"));
     }
+
+    @Override
+    public String toString() {
+        return "Aviario{" +
+                "nombre='" + getNombre() + '\'' +
+                ", temperatura=" + getTemperatura() +
+                ", humedad=" + getHumedad() +
+                ", limpieza=" + isLimpieza() +
+                ", cantidadPajaros=" + cantidadPajaros +
+                '}';
+    }
 }
