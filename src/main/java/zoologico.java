@@ -1,12 +1,16 @@
-import HABITATS.*;
+
 import ANIMALES.*;
 import java.util.Scanner;
 import MANTENIMIENTOSEGURIDAD.*;
 import RECURSOS.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class zoologico {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
+
 
 
 
@@ -108,6 +112,7 @@ public class zoologico {
             System.out.println("1. Animales terrestres");
             System.out.println("2. Animales acuáticos");
             System.out.println("3. Animales aviarios");
+            System.out.println("4. Quiosco");
             System.out.print("Seleccione una opción: ");
             int opcionAnimal = scanner.nextInt();
 
@@ -121,7 +126,7 @@ public class zoologico {
                     ANIMALES.Terrestre tigre = new ANIMALES.Terrestre("Tigre", 6, 90, 15, "Garras afiladas");
 
                     // Mostrar la información de los animales terrestres
-                    ANIMALES.Main.mostrarInformacionAnimales(leon, tigre);
+                    p.mostrarInformacionAnimales(leon, tigre);
                     break;
 
 
@@ -130,16 +135,39 @@ public class zoologico {
                     ANIMALES.Acuatico tiburon = new ANIMALES.Acuatico("Tiburon", 20, 100, 0, "Aletas largas");
                     ANIMALES.Acuatico delfin = new ANIMALES.Acuatico("Delfín", 4, 98, 5, "Aletas cortas");
 
-                    ANIMALES.Main.mostrarInformacionAnimales(tiburon, delfin);
+                    p.mostrarInformacionAnimales(tiburon, delfin);
                     break;
                 case 3:
                     System.out.println("¡Bienvenido al tour especializado en animales aviarios!");
                     ANIMALES.Aviario Colibri = new ANIMALES.Aviario("Colibri", 5, 100, 0, "Colorido", "Descripción del loro");
                     ANIMALES.Aviario Aguila = new ANIMALES.Aviario("Águila", 7, 95, 10, "Marrón","Descripcion del aguila");
 
-                    ANIMALES.Main.mostrarInformacionAnimales(Colibri, Aguila);
+                    p.mostrarInformacionAnimales(Colibri, Aguila);
 
+                case 4:
+                    System.out.println("¡Bienvenido al quiosco interactivo!");
+
+                    // Crear listas para animales y habitats
+                    List<ANIMALES.Animal> animales = new ArrayList<>();
+                    List<HABITATS.Habitat> habitats = new ArrayList<>();
+
+                    // Agregar animales a la lista
+                    animales.add(new ANIMALES.Terrestre("León", 8, 100, 0, "Garras"));
+                    animales.add(new ANIMALES.Acuatico("Tiburon", 20, 100, 0, "Aletas largas"));
+                    animales.add(new ANIMALES.Aviario("Colibri", 5, 100, 0, "Colorido", "Descripción del loro"));
+
+                    // Agregar habitats a la lista
+                    habitats.add(new HABITATS.Terrestre("Hábitat Terrestre", 25.0f, 50.0f, true, "Arcilla"));
+                    habitats.add(new HABITATS.Acuatico("Hábitat Acuático", 20.0f, 70.0f, true, 7.0f));
+                    habitats.add(new HABITATS.Aviario("Hábitat Aviario", 22.0f, 60.0f, true,5));
+
+                    // Ahora puedes pasar las listas al constructor de Quiosco
+                    QUIOSCO.Quiosco quiosco = new QUIOSCO.Quiosco(animales, habitats);
+                    quiosco.mostrarMenu();
                     break;
+
+
+
                 default:
                     System.out.println("Opción no válida. Inténtelo de nuevo.");
             }

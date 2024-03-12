@@ -2,7 +2,7 @@ package RECURSOS;
 
 import java.util.Scanner;
 
-public class mainrecursos {
+public class r {
     public static void main(String[] args) {
 
         // Crear instancias de las clases
