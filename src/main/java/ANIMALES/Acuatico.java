@@ -12,6 +12,10 @@ public class Acuatico extends Animal {
         System.out.println(this.nombre + " está nadando en el agua.");
     }
 
+    public String getDescripcion() {
+        return this.tipoAletas;
+    }
+
     @Override
     public String toString() {
         return "Acuático - " + super.toString();

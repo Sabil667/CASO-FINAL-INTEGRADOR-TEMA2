@@ -12,6 +12,10 @@ public class Terrestre extends Animal {
         System.out.println(this.nombre + " está corriendo en el suelo.");
     }
 
+    public String getDescripcion() {
+        return this.tipoPatas;
+    }
+
     public static class Elefante extends Terrestre {
         public Elefante() {
             super("Elefante", 15, 100, 0, "Grande");

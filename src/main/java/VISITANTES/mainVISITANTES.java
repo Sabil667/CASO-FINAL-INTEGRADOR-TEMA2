@@ -83,21 +83,21 @@ public class mainVISITANTES {
                     System.out.println("¡Bienvenido al tour especializado en animales terrestres!");
                     HABITATS.Terrestre habitatTerrestre = new HABITATS.Terrestre("Bosque", 28.0f, 60.0f, true, "Arcilloso");
                     monitorearCondicionesHabitat(habitatTerrestre);
-                    ANIMALES.Terrestre animalTerrestre = new ANIMALES.Terrestre("Nombre del animal", "Descripción del animal");
+                    ANIMALES.Terrestre animalTerrestre = new ANIMALES.Terrestre("Nombre del animal", 1,2,3,"Descripción del animal");
                     System.out.println("Información del animal: " + animalTerrestre.getNombre() + ", " + animalTerrestre.getDescripcion());
                     break;
                 case 2:
                     System.out.println("¡Bienvenido al tour especializado en animales acuáticos!");
                     HABITATS.Acuatico habitatAcuatico = new HABITATS.Acuatico("Acuario", 25.0f, 80.0f, true, 7.5f);
                     monitorearCondicionesHabitat(habitatAcuatico);
-                    ANIMALES.Acuatico animalAcuatico = new ANIMALES.Acuatico("Nombre del animal", "Descripción del animal");
+                    ANIMALES.Acuatico animalAcuatico = new ANIMALES.Acuatico("Nombre del animal", 1,2,3,"Descripción del animal");
                     System.out.println("Información del animal: " + animalAcuatico.getNombre() + ", " + animalAcuatico.getDescripcion());
                     break;
                 case 3:
                     System.out.println("¡Bienvenido al tour especializado en animales aviarios!");
                     HABITATS.Aviario habitatAviario = new HABITATS.Aviario("Aviario", 22.0f, 75.0f, true, 15);
                     monitorearCondicionesHabitat(habitatAviario);
-                    ANIMALES.Aviario animalAviario = new ANIMALES.Aviario("Nombre del animal", "Descripción del animal");
+                    ANIMALES.Aviario animalAviario = new ANIMALES.Aviario("Nombre del animal", 1,2,3,"Descripción del animal","Otra descripción");
                     System.out.println("Información del animal: " + animalAviario.getNombre() + ", " + animalAviario.getDescripcion());
                     break;
                 default:
