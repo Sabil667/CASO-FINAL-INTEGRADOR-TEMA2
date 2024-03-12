@@ -16,4 +16,15 @@ public class Terrestre extends Habitat {
         System.out.println("Tipo de suelo: " + tipoSuelo);
         System.out.println("¿Hábitat limpio? " + (limpieza ? "Sí" : "No"));
     }
+    @Override
+    public String toString() {
+        return "Terrestre{" +
+                "nombre='" + getNombre() + '\'' +
+                ", temperatura=" + getTemperatura() +
+                ", humedad=" + getHumedad() +
+                ", limpieza=" + isLimpieza() +
+                ", tipoSuelo='" + tipoSuelo + '\'' +
+                '}';
+    }
+
 }

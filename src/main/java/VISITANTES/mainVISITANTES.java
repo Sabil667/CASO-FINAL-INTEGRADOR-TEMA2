@@ -3,11 +3,16 @@ package VISITANTES;
 import ANIMALES.*;
 import java.util.Scanner;
 import MANTENIMIENTOSEGURIDAD.*;
+import QUIOSCO.Quiosco;
 import RECURSOS.*;
+import HABITATS.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class mainVISITANTES {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
+
 
 
 
@@ -109,6 +114,7 @@ public class mainVISITANTES {
             System.out.println("1. Animales terrestres");
             System.out.println("2. Animales acuáticos");
             System.out.println("3. Animales aviarios");
+            System.out.println("4. Quiosco");
             System.out.print("Seleccione una opción: ");
             int opcionAnimal = scanner.nextInt();
 
@@ -140,7 +146,30 @@ public class mainVISITANTES {
 
                     ANIMALES.Main.mostrarInformacionAnimales(Colibri, Aguila);
 
+                case 4:
+                    System.out.println("¡Bienvenido al quiosco interactivo!");
+
+                    // Crear listas para animales y habitats
+                    List<ANIMALES.Animal> animales = new ArrayList<>();
+                    List<HABITATS.Habitat> habitats = new ArrayList<>();
+
+                    // Agregar animales a la lista
+                    animales.add(new ANIMALES.Terrestre("León", 8, 100, 0, "Garras"));
+                    animales.add(new ANIMALES.Acuatico("Tiburon", 20, 100, 0, "Aletas largas"));
+                    animales.add(new ANIMALES.Aviario("Colibri", 5, 100, 0, "Colorido", "Descripción del loro"));
+
+                    // Agregar habitats a la lista
+                    habitats.add(new HABITATS.Terrestre("Hábitat Terrestre", 25.0f, 50.0f, true, "Arcilla"));
+                    habitats.add(new HABITATS.Acuatico("Hábitat Acuático", 20.0f, 70.0f, true, 7.0f));
+                    habitats.add(new HABITATS.Aviario("Hábitat Aviario", 22.0f, 60.0f, true,5));
+
+                    // Ahora puedes pasar las listas al constructor de Quiosco
+                    QUIOSCO.Quiosco quiosco = new QUIOSCO.Quiosco(animales, habitats);
+                    quiosco.mostrarMenu();
                     break;
+
+
+
                 default:
                     System.out.println("Opción no válida. Inténtelo de nuevo.");
             }
